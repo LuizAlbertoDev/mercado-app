@@ -25,6 +25,26 @@
 
     <main>
 
+        <h2>Lista de Compras</h2>
+        <form id="lista-form">
+                <div class="form-group">
+                    <label for="item">Nome do produto</label>
+                    <input type="text" id="item" name="item" placeholder="Ex: Arroz" required />
+                </div>
+
+                <div class="form-group">
+                    <label for="quantidade">Quantidade</label>
+                    <input type="number" id="quantidade" name="quantidade" min="1" required />
+                </div>
+                <button type="submit" class="btn btn--primary">Adicionar à Lista</button>
+
+        </form>
+
+        <div id="lista-produtos">
+            <h3>Produtos na Lista:</h3>
+            <ul id="produtos-lista"></ul>
+        </div>
+
     </main>
 
     <footer>
