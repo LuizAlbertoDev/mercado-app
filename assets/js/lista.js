@@ -10,11 +10,34 @@ function setupListaForm() {
             quantidade: Number(document.getElementById('quantidade').value)
         }
 
-        const lista = getData('produtos-lista')
+        const lista = getData('lista-produtos')
         lista.push(produto)
-        saveData('produtos-lista', lista)
+        saveData('lista-produtos', lista)
 
         form.reset()
         renderLista()
     })
 }
+
+function renderLista(){
+    const listaContainer = document.getElementById('lista-produtos')
+    if(!listaContainer) return
+
+    const lista = getData('lista-produtos')  // declara primeiro
+
+    listaContainer.innerHTML = ''
+
+    if (lista.length === 0) {               // usa depois
+        listaContainer.innerHTML = '<p>Nenhum produto na lista.</p>'
+        return
+    }
+
+    lista.forEach(item => {
+        const li = document.createElement('li')
+        li.textContent = `${item.nome} - Quantidade: ${item.quantidade}`
+        listaContainer.appendChild(li)
+    })
+}
+
+setupListaForm()
+renderLista()
