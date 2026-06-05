@@ -301,3 +301,10 @@ h3 {
         font-weight: 600;
     }
 }
+
+.btn--sm {
+    padding: 2px 10px;
+    font-size: var(--font-size-sm);
+    margin-top: 0;
+    width: auto;
+}

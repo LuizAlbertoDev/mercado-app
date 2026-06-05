@@ -32,11 +32,27 @@ function renderLista(){
         return
     }
 
-    lista.forEach(item => {
+    lista.forEach((item, index) => {
         const li = document.createElement('li')
-        li.textContent = `${item.nome} - Quantidade: ${item.quantidade}`
+
+        li.innerHTML = `${item.nome} - Quantidade: ${item.quantidade} <button class="btn btn--danger btn--sm">Remover</button>`
+
+        const botao = li.querySelector(".btn--danger")
+
+        botao.addEventListener("click", ()=> {
+            deleteProduto(index)
+        })
+        
         listaContainer.appendChild(li)
+        
     })
+}
+
+function deleteProduto(index) {
+    const lista = getData(`lista-produtos`)
+    lista.splice(index,1)
+    saveData(`lista-produtos`,lista)
+    renderLista()
 }
 
 setupListaForm()
